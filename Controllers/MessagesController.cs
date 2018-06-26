@@ -24,8 +24,7 @@ namespace Microsoft.Bot.Sample.FormBot
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                Uri baseUri = new Uri(uriString: Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.PathAndQuery, String.Empty));
-                await Conversation.SendAsync(activity, () => new ImagesForm(baseUri));
+                await Conversation.SendAsync(activity, () => new ImagesForm());
             }
             else
             {
@@ -44,7 +43,7 @@ namespace Microsoft.Bot.Sample.FormBot
             }
             else if (message.Type == ActivityTypes.ConversationUpdate)
             {
-                MicrosoftAppCredentials.TrustServiceUrl(@"https://email.botframework.com/", DateTime.MaxValue);
+                
 
 
                 // Handle conversation state changes, like members being added and removed
@@ -68,48 +67,3 @@ namespace Microsoft.Bot.Sample.FormBot
         }
     }
 }
-    
-    
-    
-    
-    
-    
-    /*
-    public class MessagesController : ApiController
-    {
-        internal static IDialog<SandwichOrder> MakeRootDialog()
-        {
-            return Chain.From(() => FormDialog.FromForm(SandwichOrder.BuildForm));
-        }
-
-        /// <summary>
-        /// POST: api/Messages
-        /// receive a message from a user and send replies
-        /// </summary>
-        /// <param name="activity"></param>
-        [ResponseType(typeof(void))]
-        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
-        {
-            if (activity != null)
-            {
-                // one of these will have an interface and process it
-                switch (activity.GetActivityType())
-                {
-                    case ActivityTypes.Message:
-                        await Conversation.SendAsync(activity, MakeRootDialog);
-                        break;
-
-                    case ActivityTypes.ConversationUpdate:
-                    case ActivityTypes.ContactRelationUpdate:
-                    case ActivityTypes.Typing:
-                    case ActivityTypes.DeleteUserData:
-                    default:
-                        Trace.TraceError($"Unknown activity type ignored: {activity.GetActivityType()}");
-                        break;
-                }
-            }
-            return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
-        }
-    }
-}
-*/

@@ -179,11 +179,13 @@
     </Compile>
     <Compile Include="Models\ImagesForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Sandwich.cs" />
     <Compile Include="StorageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\JasonForwardingTest - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\mb01-dotnetformflowbot - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\mb01-dotnetformflowbot-Web-Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

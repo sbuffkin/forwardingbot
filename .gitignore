@@ -4,3 +4,6 @@ packages/
 *.pubxml.user
 *.csproj.user
 .vs/
+Web.config
+Properties/PublishProfiles/*
+
